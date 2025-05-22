@@ -1,18 +1,11 @@
 import { useDrag } from "react-dnd";
-import { Task } from "@/types/index";
-import { PencilIcon, TrashIcon, CalendarIcon, CheckCircleIcon } from "lucide-react";
+import { PencilIcon, TrashIcon, CalendarIcon, CheckCircleIcon, Sparkles } from "lucide-react";
 import { format } from "date-fns";
 
-interface TaskCardProps {
-  task: Task;
-  onEdit: () => void;
-  onDelete: () => void;
-}
-
-export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
+export function TaskCard({ task, onEdit, onDelete }) {
   const isCompleted = task.status === "completed";
 
-  // Set up drag source
+  // Set up drag source for drag and drop
   const [{ isDragging }, drag] = useDrag({
     type: "task",
     item: { id: task.id, status: task.status },
@@ -26,39 +19,51 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
     ? format(new Date(task.dueDate), "MMM d")
     : null;
 
-  // Get tag color class based on tag name
-  const getTagColorClass = (tag: string) => {
+  // Get tag color class based on tag name - using cute colors
+  function getTagColorClass(tag) {
     switch (tag) {
       case "Development":
-        return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300";
+        return "bg-green-100 text-green-800";
       case "Design":
-        return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300";
+        return "bg-blue-100 text-blue-800";
       case "Documentation":
-        return "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300";
+        return "bg-purple-100 text-purple-800";
       case "Bug":
-        return "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300";
+        return "bg-red-100 text-red-800";
       case "Feature":
-        return "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300";
+        return "bg-orange-100 text-orange-800";
       default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300";
+        return "bg-gray-100 text-gray-800";
     }
-  };
+  }
+
+  // Get cute emoji based on tag
+  function getTagEmoji(tag) {
+    switch (tag) {
+      case "Development": return "👩‍💻";
+      case "Design": return "🎨";
+      case "Documentation": return "📝";
+      case "Bug": return "🐞";
+      case "Feature": return "✨";
+      default: return "💖";
+    }
+  }
 
   return (
     <div
       ref={drag}
-      className={`task-card bg-card p-4 rounded-md shadow-card mb-3 cursor-move hover:shadow-card-hover transition-shadow border border-neutral-200 dark:border-neutral-700 ${
-        isDragging ? "opacity-60 shadow-dragging" : ""
+      className={`task-card bg-card p-4 rounded-md mb-3 cursor-move transition-all border border-primary/20 ${
+        isDragging ? "opacity-60" : ""
       }`}
       style={{ opacity: isDragging ? 0.6 : 1 }}
     >
       <div className="flex justify-between items-start mb-2">
-        <h3 className={`font-medium ${isCompleted ? "line-through text-neutral-500 dark:text-neutral-400" : "text-neutral-800 dark:text-neutral-200"}`}>
+        <h3 className={`font-medium ${isCompleted ? "line-through text-primary/50" : "text-primary"}`}>
           {task.title}
         </h3>
         <div className="task-actions flex space-x-1">
           <button
-            className="edit-task-btn p-1 text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+            className="edit-task-btn p-1 text-primary/60 hover:text-primary transition-colors"
             onClick={(e) => {
               e.stopPropagation();
               onEdit();
@@ -68,7 +73,7 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
             <PencilIcon className="h-4 w-4" />
           </button>
           <button
-            className="delete-task-btn p-1 text-neutral-400 hover:text-error transition-colors"
+            className="delete-task-btn p-1 text-primary/60 hover:text-error transition-colors"
             onClick={(e) => {
               e.stopPropagation();
               onDelete();
@@ -79,17 +84,17 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
           </button>
         </div>
       </div>
-      <p className={`text-sm mb-3 ${isCompleted ? "line-through text-neutral-500 dark:text-neutral-400" : "text-neutral-600 dark:text-neutral-300"}`}>
+      <p className={`text-sm mb-3 ${isCompleted ? "line-through text-primary/50" : "text-primary/80"}`}>
         {task.description}
       </p>
       <div className="flex items-center justify-between">
         {isCompleted ? (
-          <span className="inline-flex items-center text-xs text-neutral-400 dark:text-neutral-500">
-            <CheckCircleIcon className="mr-1 h-3 w-3 text-success" />
-            Completed
+          <span className="inline-flex items-center text-xs text-success">
+            <CheckCircleIcon className="mr-1 h-3 w-3" />
+            Completed!
           </span>
         ) : formattedDate ? (
-          <span className="inline-flex items-center text-xs text-neutral-500 dark:text-neutral-400">
+          <span className="inline-flex items-center text-xs text-primary/70">
             <CalendarIcon className="mr-1 h-3 w-3" />
             Due: {formattedDate}
           </span>
@@ -97,9 +102,14 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
           <span></span>
         )}
         <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${getTagColorClass(task.tag)}`}>
-          {task.tag}
+          {getTagEmoji(task.tag)} {task.tag}
         </span>
       </div>
+      
+      {/* Add cute decorative corner */}
+      {!isCompleted && (
+        <div className="absolute bottom-1 right-1 text-primary/20 text-xs">♡</div>
+      )}
     </div>
   );
 }
