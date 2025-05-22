@@ -23,7 +23,7 @@ export default function Dashboard() {
   return (
     <>
       <Helmet>
-        <title>My Cute Task Board</title>
+        <title>Visual Board</title>
         <meta name="description" content="Organize your tasks in a cute and fun way with this Kanban board" />
       </Helmet>
       <div className="min-h-screen bg-background">

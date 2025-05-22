@@ -1,0 +1,74 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cupcake Pattern Background -->
+  <defs>
+    <!-- Cupcake Shape -->
+    <pattern id="cupcakePattern" patternUnits="userSpaceOnUse" width="100" height="100">
+      <!-- Cupcake Base -->
+      <path d="M40,60 C40,45 60,45 60,60 L60,80 L40,80 Z" fill="#ffc0cb" stroke="#e6a6b2" stroke-width="1" />
+      <!-- Cupcake Top -->
+      <path d="M35,60 C35,45 65,45 65,60 C65,50 35,50 35,60" fill="#ffb6c1" stroke="#e6a6b2" stroke-width="1" />
+      <!-- Frosting -->
+      <path d="M37,45 C30,25 70,25 63,45" fill="none" stroke="#ff69b4" stroke-width="2" />
+      <!-- Cherry -->
+      <circle cx="50" cy="30" r="5" fill="#ff3366" />
+      <!-- Sparkles -->
+      <path d="M25,25 L30,30 M25,30 L30,25" stroke="#ffb6c1" stroke-width="1.5" />
+      <path d="M70,25 L75,30 M70,30 L75,25" stroke="#ffb6c1" stroke-width="1.5" />
+      <path d="M25,75 L30,80 M25,80 L30,75" stroke="#ffb6c1" stroke-width="1.5" />
+      <path d="M70,75 L75,80 M70,80 L75,75" stroke="#ffb6c1" stroke-width="1.5" />
+    </pattern>
+    
+    <!-- Teddy Bear Pattern -->
+    <pattern id="teddyPattern" patternUnits="userSpaceOnUse" width="100" height="100">
+      <!-- Teddy Head -->
+      <circle cx="50" cy="50" r="20" fill="#d2a679" />
+      <!-- Ears -->
+      <circle cx="35" cy="35" r="10" fill="#d2a679" />
+      <circle cx="65" cy="35" r="10" fill="#d2a679" />
+      <!-- Inner Ears -->
+      <circle cx="35" cy="35" r="5" fill="#bf8e5e" />
+      <circle cx="65" cy="35" r="5" fill="#bf8e5e" />
+      <!-- Eyes -->
+      <circle cx="43" cy="45" r="3" fill="#4d2800" />
+      <circle cx="57" cy="45" r="3" fill="#4d2800" />
+      <!-- Nose -->
+      <circle cx="50" cy="52" r="3.5" fill="#8e5a2d" />
+      <!-- Mouth -->
+      <path d="M45,58 Q50,62 55,58" fill="none" stroke="#8e5a2d" stroke-width="1.5" />
+      <!-- Cheeks -->
+      <circle cx="40" cy="52" r="3" fill="#ffb6c1" opacity="0.5" />
+      <circle cx="60" cy="52" r="3" fill="#ffb6c1" opacity="0.5" />
+    </pattern>
+    
+    <!-- Hearts Pattern -->
+    <pattern id="heartPattern" patternUnits="userSpaceOnUse" width="60" height="60">
+      <path d="M30,20 C35,15 45,15 45,25 C45,35 30,40 30,40 C30,40 15,35 15,25 C15,15 25,15 30,20" fill="#ff69b4" opacity="0.3" />
+    </pattern>
+    
+    <!-- Stars Pattern -->
+    <pattern id="starPattern" patternUnits="userSpaceOnUse" width="40" height="40">
+      <path d="M20,5 L22,12 L30,12 L24,18 L26,25 L20,20 L14,25 L16,18 L10,12 L18,12 Z" fill="#ffb6c1" opacity="0.3" />
+    </pattern>
+  </defs>
+  
+  <!-- Background Rectangle -->
+  <rect width="100%" height="100%" fill="#fff1f5" />
+  
+  <!-- Pattern Layers -->
+  <rect width="100%" height="100%" fill="url(#heartPattern)" opacity="0.4" />
+  <rect width="100%" height="100%" fill="url(#starPattern)" opacity="0.3" />
+  <rect width="100%" height="100%" fill="url(#cupcakePattern)" opacity="0.2" />
+  <rect width="100%" height="100%" fill="url(#teddyPattern)" opacity="0.15" />
+  
+  <!-- Decorative Elements -->
+  <circle cx="100" cy="100" r="40" fill="#ffb6c1" opacity="0.2" />
+  <circle cx="400" cy="150" r="60" fill="#ffb6c1" opacity="0.2" />
+  <circle cx="150" cy="400" r="50" fill="#ffb6c1" opacity="0.2" />
+  <circle cx="350" cy="350" r="40" fill="#ffb6c1" opacity="0.2" />
+  
+  <!-- Extra Sparkles -->
+  <path d="M80,220 L90,230 M80,230 L90,220" stroke="#ff69b4" stroke-width="2" opacity="0.4" />
+  <path d="M420,80 L430,90 M420,90 L430,80" stroke="#ff69b4" stroke-width="2" opacity="0.4" />
+  <path d="M380,420 L390,430 M380,430 L390,420" stroke="#ff69b4" stroke-width="2" opacity="0.4" />
+  <path d="M180,320 L190,330 M180,330 L190,320" stroke="#ff69b4" stroke-width="2" opacity="0.4" />
+</svg>

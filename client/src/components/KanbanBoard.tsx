@@ -162,15 +162,20 @@ export function KanbanBoard() {
   return (
     <main className="container mx-auto px-4 py-6 max-w-7xl">
       <header className="mb-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
-          <div>
-            <h1 className="text-3xl font-semibold text-primary">
-              ✨ My Cute Task Board ✨
-            </h1>
-            <p className="text-muted-foreground mt-1">Organize your tasks in a cute and fun way!</p>
+        <div className="relative mb-6">
+          <div className="flex items-center justify-center">
+            <div className="w-full max-w-3xl relative">
+              <img src="./assets/cute-banner.svg" alt="Cute Banner" className="w-full" />
+              <div className="absolute inset-0 flex flex-col justify-center items-center">
+                <h1 className="text-3xl font-bold text-primary drop-shadow-md">
+                  ✨ Visual Board ✨
+                </h1>
+                <p className="text-primary/80 mt-1">Organize your tasks in a cute and fun way!</p>
+              </div>
+            </div>
           </div>
           <Button 
-            className="inline-flex items-center px-4 py-2 bg-primary hover:bg-primary/90"
+            className="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center px-4 py-2 bg-primary hover:bg-primary/90"
             onClick={() => handleAddTask()}
           >
             <PlusIcon className="mr-2 h-4 w-4" />
@@ -178,7 +183,7 @@ export function KanbanBoard() {
           </Button>
         </div>
         
-        <div className="bg-card p-4 rounded-lg shadow-sm mb-6 border border-primary/20">
+        <div className="bg-card/80 backdrop-blur-sm p-4 rounded-lg shadow-sm mb-6 border border-primary/30">
           <div className="flex flex-wrap gap-3">
             <div className="flex items-center text-sm">
               <div className="w-3 h-3 rounded-full bg-primary mr-2"></div>
