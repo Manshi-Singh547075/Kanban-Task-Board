@@ -160,14 +160,14 @@ export function KanbanBoard() {
   }
 
   return (
-    <main className="container mx-auto px-4 py-6 max-w-7xl">
+    <main className="container mx-auto px-4 py-20 max-w-7xl">
       <header className="mb-8">
         <div className="relative mb-6">
           <div className="flex items-center justify-center">
             <div className="w-full max-w-3xl relative">
-              <img src="/cute-banner.svg" alt="Cute Banner" className="w-full" />
+              {/* <img src="attached_assets\Xo~Kitty🩰🎀.jpeg"  className="w-full" /> */}
               <div className="absolute inset-0 flex flex-col justify-center items-center">
-                <h1 className="text-3xl font-bold text-primary drop-shadow-md">
+                <h1 className="text-3xl font-bold text-primary drop-shadow-md py-10">
                   ✨ Visual Board ✨
                 </h1>
                 <p className="text-primary/80 mt-1">Organize your tasks in a cute and fun way!</p>
