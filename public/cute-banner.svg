@@ -1,0 +1,40 @@
+<svg width="500" height="100" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Banner Background -->
+  <rect width="500" height="100" rx="15" ry="15" fill="#ffcce6" />
+  
+  <!-- Decorative Border -->
+  <rect x="5" y="5" width="490" height="90" rx="10" ry="10" fill="none" stroke="#ff99cc" stroke-width="2" stroke-dasharray="5,3" />
+  
+  <!-- Small Hearts -->
+  <path d="M30,30 C35,25 45,25 45,35 C45,45 30,50 30,50 C30,50 15,45 15,35 C15,25 25,25 30,30" fill="#ff80bf" opacity="0.7" />
+  <path d="M460,30 C465,25 475,25 475,35 C475,45 460,50 460,50 C460,50 445,45 445,35 C445,25 455,25 460,30" fill="#ff80bf" opacity="0.7" />
+  
+  <!-- Stars -->
+  <path d="M60,25 L63,33 L72,33 L65,38 L68,46 L60,40 L52,46 L55,38 L48,33 L57,33 Z" fill="#ffb3da" />
+  <path d="M430,25 L433,33 L442,33 L435,38 L438,46 L430,40 L422,46 L425,38 L418,33 L427,33 Z" fill="#ffb3da" />
+  
+  <!-- Ribbon Left -->
+  <path d="M100,10 C120,5 115,30 130,30 C115,30 110,55 100,50" fill="#ff99cc" />
+  
+  <!-- Ribbon Right -->
+  <path d="M400,10 C380,5 385,30 370,30 C385,30 390,55 400,50" fill="#ff99cc" />
+  
+  <!-- Title Underline -->
+  <path d="M150,60 C200,70 300,70 350,60" fill="none" stroke="#ff66b3" stroke-width="2" />
+
+  <!-- Flower Left -->
+  <circle cx="90" cy="60" r="8" fill="#ffccff" />
+  <circle cx="82" cy="55" r="8" fill="#ffccff" />
+  <circle cx="82" cy="65" r="8" fill="#ffccff" />
+  <circle cx="98" cy="55" r="8" fill="#ffccff" />
+  <circle cx="98" cy="65" r="8" fill="#ffccff" />
+  <circle cx="90" cy="60" r="5" fill="#ffff99" />
+  
+  <!-- Flower Right -->
+  <circle cx="410" cy="60" r="8" fill="#ffccff" />
+  <circle cx="402" cy="55" r="8" fill="#ffccff" />
+  <circle cx="402" cy="65" r="8" fill="#ffccff" />
+  <circle cx="418" cy="55" r="8" fill="#ffccff" />
+  <circle cx="418" cy="65" r="8" fill="#ffccff" />
+  <circle cx="410" cy="60" r="5" fill="#ffff99" />
+</svg>

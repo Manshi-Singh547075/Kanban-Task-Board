@@ -165,7 +165,7 @@ export function KanbanBoard() {
         <div className="relative mb-6">
           <div className="flex items-center justify-center">
             <div className="w-full max-w-3xl relative">
-              <img src="./assets/cute-banner.svg" alt="Cute Banner" className="w-full" />
+              <img src="/cute-banner.svg" alt="Cute Banner" className="w-full" />
               <div className="absolute inset-0 flex flex-col justify-center items-center">
                 <h1 className="text-3xl font-bold text-primary drop-shadow-md">
                   ✨ Visual Board ✨

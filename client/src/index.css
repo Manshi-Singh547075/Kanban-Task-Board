@@ -64,7 +64,7 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Quicksand', sans-serif;
-    background-image: url('./assets/cute-background.svg');
+    background-image: url('/cute-background.svg');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
