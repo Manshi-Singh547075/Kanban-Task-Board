@@ -1,6 +1,5 @@
 import { useDrop } from "react-dnd";
 import { TaskCard } from "./TaskCard";
-import { useTaskContext } from "@/context/TaskContext";
 import { PlusIcon, InboxIcon, CheckCircleIcon } from "lucide-react";
 
 export function KanbanColumn({
@@ -12,9 +11,8 @@ export function KanbanColumn({
   onEditTask,
   onDeleteTask,
   onClearCompleted,
+  moveTask
 }) {
-  const { moveTask } = useTaskContext();
-
   // Set up drop target for drag and drop
   const [{ isOver }, drop] = useDrop({
     accept: "task",

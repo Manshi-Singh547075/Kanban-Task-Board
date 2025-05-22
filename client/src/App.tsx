@@ -6,7 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Dashboard from "@/pages/Dashboard";
 import { ThemeProvider } from "./context/ThemeProvider";
-import { TaskProvider } from "./context/TaskContext";
 
 // Simple router component
 function Router() {
@@ -23,12 +22,10 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="light">
-        <TaskProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Router />
-          </TooltipProvider>
-        </TaskProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );

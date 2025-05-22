@@ -1,22 +1,67 @@
-import { useState } from "react";
-import { useTaskContext } from "@/context/TaskContext";
+import { useState, useEffect } from "react";
 import { KanbanColumn } from "./KanbanColumn";
 import { TaskForm } from "./TaskForm";
 import { DeleteConfirmation } from "./DeleteConfirmation";
 import { Button } from "@/components/ui/button";
 import { PlusIcon, InfoIcon } from "lucide-react";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+
+// Sample initial tasks with cute girly tasks
+const initialTasks = [
+  {
+    id: 'task-1',
+    title: 'Decorate planner',
+    description: 'Add stickers and washi tape to my cute weekly planner',
+    status: 'todo',
+    dueDate: '2023-08-25',
+    tag: 'Design'
+  },
+  {
+    id: 'task-2',
+    title: 'Create birthday cards',
+    description: 'Make handmade birthday cards for my friends',
+    status: 'todo',
+    dueDate: '2023-08-28',
+    tag: 'Documentation'
+  },
+  {
+    id: 'task-3',
+    title: 'Organize makeup collection',
+    description: 'Sort makeup by type and put in cute organizers',
+    status: 'todo',
+    dueDate: '2023-08-30',
+    tag: 'Development'
+  },
+  {
+    id: 'task-4',
+    title: 'Plan fairy garden',
+    description: 'Research miniature plants and fairy decorations for garden',
+    status: 'in-progress',
+    dueDate: '2023-08-27',
+    tag: 'Development'
+  },
+  {
+    id: 'task-5',
+    title: 'Paint bedroom wall',
+    description: 'Paint accent wall in soft pastel color with cloud pattern',
+    status: 'in-progress',
+    dueDate: '2023-08-26',
+    tag: 'Design'
+  },
+  {
+    id: 'task-6',
+    title: 'Create vision board',
+    description: 'Collect inspirational images and quotes for vision board',
+    status: 'completed',
+    dueDate: '2023-08-20',
+    tag: 'Development'
+  }
+];
 
 export function KanbanBoard() {
-  // Get task functions from context
-  const {
-    tasks,
-    addTask,
-    updateTask,
-    deleteTask,
-    clearCompletedTasks,
-    getTasksByStatus,
-  } = useTaskContext();
-
+  // Use local storage to persist tasks
+  const [tasks, setTasks] = useLocalStorage("kanbanTasks", initialTasks);
+  
   // Set up state variables
   const [isTaskFormOpen, setIsTaskFormOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -30,6 +75,43 @@ export function KanbanBoard() {
     { id: "in-progress", title: "In Progress 💖", color: "bg-warning" },
     { id: "completed", title: "Completed 🌸", color: "bg-success" },
   ];
+  
+  // Task management functions
+  function addTask(task) {
+    const newTask = {
+      ...task,
+      id: `task-${Date.now()}`,
+    };
+    setTasks([...tasks, newTask]);
+  }
+
+  function updateTask(updatedTask) {
+    const updatedTasks = tasks.map((task) =>
+      task.id === updatedTask.id ? updatedTask : task
+    );
+    setTasks(updatedTasks);
+  }
+
+  function deleteTask(id) {
+    const filteredTasks = tasks.filter((task) => task.id !== id);
+    setTasks(filteredTasks);
+  }
+
+  function moveTask(id, newStatus) {
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, status: newStatus } : task
+    );
+    setTasks(updatedTasks);
+  }
+
+  function clearCompletedTasks() {
+    const filteredTasks = tasks.filter((task) => task.status !== "completed");
+    setTasks(filteredTasks);
+  }
+
+  function getTasksByStatus(status) {
+    return tasks.filter((task) => task.status === status);
+  }
 
   // Task counts by status
   const todoCount = getTasksByStatus("todo").length;
@@ -131,6 +213,7 @@ export function KanbanBoard() {
             onEditTask={handleEditTask}
             onDeleteTask={handleDeleteClick}
             onClearCompleted={column.id === "completed" ? clearCompletedTasks : undefined}
+            moveTask={moveTask}
           />
         ))}
       </div>
